@@ -17,10 +17,10 @@ router.post('/', (req, res) => {
   console.log(req.body);
   const sqlText = `INSERT INTO "product" ("name", "description", "price", "image") 
                   VALUES ($1, $2, $3, $4);`;
-  pool.query(sqlText, [req.body.name, req.body.description, req.body.price, req.body.imgUrl])
+  pool.query(sqlText, [req.body.name, req.body.description, req.body.price, req.body.url])
       .then(result => {
         res.sendStatus(201);
-      }).catch(err => {
+      }).catch(error => {
         console.log('error adding item to inventory......', error);
         res.sendStatus(500);
       })

@@ -11,9 +11,19 @@ function* fetchProduct() {
     }
 }
 
+function* addProduct(action) {
+    try {
+        yield axios.post('/api/inventory', action.payload);
+        yield put ({ type: 'FETCH_PRODUCT' });
+    } catch (error) {
+        console.log('error adding item to DB.....', error);
+        alert('Something went wrong. Please try again.');
+    }
+}
+
 function* inventorySaga() {
     yield takeLatest('FETCH_PRODUCT', fetchProduct);
-    
+    yield takeLatest('POST', addProduct);
   }
   
   export default inventorySaga;
