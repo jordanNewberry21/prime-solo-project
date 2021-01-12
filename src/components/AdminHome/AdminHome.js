@@ -4,11 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import AddItemForm from '../AddItemForm/AddItemForm';
 
 class AdminHome extends Component {
-  // componentDidMount fetching inventory list from db
-  componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_PRODUCT' });
-  }
-
+  // Admin home page
   render() {
     return (
       <div>

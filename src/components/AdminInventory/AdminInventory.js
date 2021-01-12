@@ -1,22 +1,48 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import InventoryItem from '../InventoryItem/InventoryItem';
 
-// reduxStore
-import mapStoreToProps from '../../redux/mapStoreToProps';
+// material-ui
+import { Grid, CircularProgress } from '@material-ui/core';
+import makeStyles from './styles';
 
 
 
 
 
-class AdminInventory extends Component {
+const AdminInventory = ({ setCurrentId }) => {
+  
+    const inventory = useSelector((store) => store.inventory);
+    const classes = makeStyles();
+    const dispatch = useDispatch();
 
-  render() {
-    return (
-      <div>
-        <p>Admin Inventory Page</p>
-      </div>
+    const getInventory = useCallback( () => {
+      dispatch({ type: 'FETCH_PRODUCT' });
+      }, [dispatch]
     )
-  }
+
+    useEffect( () => {
+      getInventory();
+    }, [getInventory]);
+    
+
+    return (
+      
+      // shows circular loading bar to denote that things are loading
+      // if there are no items to be loaded
+      !inventory.length ? <CircularProgress /> : (
+        <Grid className={classes.mainContainer} container  spacing={3}>
+            {inventory.map((item) => (
+                <Grid key={item.id} item xs={12} sm={6}>
+                    <InventoryItem item={item} />
+                </Grid>
+            ))}
+            {/* <p>{JSON.stringify(inventory)}</p> */}
+        </Grid>
+    )
+      
+    )
+  
 }
 
-export default connect(mapStoreToProps)(AdminInventory);
+export default AdminInventory;
