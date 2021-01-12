@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   const sqlText = `SELECT * FROM "product";`;
-  pool.query(sqlText).then((result) => {
+  pool.query(sqlText).then(result => {
     res.send(result.rows);
   }).catch((error) => {
     console.log('error retrieving inventory list from DB.....', error);
@@ -14,7 +14,16 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  // POST route code here
+  console.log(req.body);
+  const sqlText = `INSERT INTO "product" ("name", "description", "price", "image") 
+                  VALUES ($1, $2, $3, $4);`;
+  pool.query(sqlText, [req.body.name, req.body.description, req.body.price, req.body.image])
+      .then(result => {
+        res.sendStatus(201);
+      }).catch(err => {
+        console.log('error adding item to inventory......', error);
+        res.sendStatus(500);
+      })
 });
 
 module.exports = router;
