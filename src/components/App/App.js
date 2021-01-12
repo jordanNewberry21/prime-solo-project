@@ -14,8 +14,8 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import AdminPage from '../AdminPage/AdminPage';
-import InfoPage from '../InfoPage/InfoPage';
+import AdminHome from '../AdminHome/AdminHome';
+import InfoPage from '../AdminInventory/AdminInventory';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -52,7 +52,7 @@ class App extends Component {
               // logged in shows UserPage else shows LoginPage
               exact
               path="/user"
-              component={AdminPage}
+              component={AdminHome}
             />
 
             <ProtectedRoute

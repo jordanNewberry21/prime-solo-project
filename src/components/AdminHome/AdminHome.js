@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-class AdminPage extends Component {
+class AdminHome extends Component {
   // componentDidMount fetching inventory list from db
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_PRODUCT' });
   }
-  
+
   render() {
     return (
       <div>
@@ -21,4 +21,4 @@ class AdminPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStoreToProps)(AdminPage);
+export default connect(mapStoreToProps)(AdminHome);
