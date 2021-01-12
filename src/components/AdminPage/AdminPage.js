@@ -4,7 +4,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class AdminPage extends Component {
-  // this component doesn't do much to start, just renders some user info to the DOM
+  // componentDidMount fetching inventory list from db
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_PRODUCT' });
+  }
+  
   render() {
     return (
       <div>
