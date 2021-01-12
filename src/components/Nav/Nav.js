@@ -12,14 +12,14 @@ const Nav = (props) => {
   };
 
   if (props.store.user.id != null) {
-    loginLinkData.path = '/user';
+    loginLinkData.path = '/admin-form';
     loginLinkData.text = 'Home';
   }
 
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <h2 className="nav-title">Creations by Casey</h2>
       </Link>
       <div className="nav-right">
         <Link className="nav-link" to={loginLinkData.path}>
@@ -31,7 +31,7 @@ const Nav = (props) => {
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-            <Link className="nav-link" to="/info">
+            <Link className="nav-link" to="/admin-inventory">
               Inventory
             </Link>
             <LogOutButton className="nav-link" />

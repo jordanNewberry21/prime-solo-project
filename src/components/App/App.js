@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import AdminHome from '../AdminHome/AdminHome';
-import InfoPage from '../AdminInventory/AdminInventory';
+import AdminInventory from '../AdminInventory/AdminInventory';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -51,15 +51,15 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows UserPage else shows LoginPage
               exact
-              path="/user"
+              path="/admin-form"
               component={AdminHome}
             />
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/info"
-              component={InfoPage}
+              path="/admin-inventory"
+              component={AdminInventory}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
@@ -72,7 +72,7 @@ class App extends Component {
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/user"
+              authRedirect="/admin-form"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -81,7 +81,7 @@ class App extends Component {
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/user"
+              authRedirect="/admin-form"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -90,7 +90,7 @@ class App extends Component {
               exact
               path="/home"
               component={LandingPage}
-              authRedirect="/user"
+              authRedirect="/admin-form"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
