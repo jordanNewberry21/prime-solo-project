@@ -21,11 +21,11 @@ function InventoryItem (props) {
             <CardContent>
                 <CardActions className={classes.cardActions}>
                 <Typography variant="body1" color="textSecondary">${item.price}</Typography>
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium">
+                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
                     Remove
                     <DeleteIcon />
                   </Button>
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" >
+                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'UPDATE', payload: item.id })}>
                     Edit
                     <MoreHorizIcon />
                   </Button>

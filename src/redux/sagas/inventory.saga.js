@@ -14,9 +14,31 @@ function* fetchProduct() {
 function* addProduct(action) {
     try {
         yield axios.post('/api/inventory', action.payload);
-        yield put ({ type: 'FETCH_ALL' });
+        yield put({ type: 'FETCH_ALL' });
     } catch (error) {
         console.log('error adding item to DB.....', error);
+        alert('Something went wrong. Please try again.');
+    }
+}
+
+function* deleteProduct(action) {
+    try {
+        const id = action.payload;
+        yield axios.delete(`/api/inventory/${id}`);
+        yield put({ type: 'FETCH_ALL' })
+    } catch (error) {
+        console.log('error deleting item from DB.....', error);
+        alert('Something went wrong. Please try again.');
+    }
+}
+
+function* updateProduct(action) {
+    try {
+        const id = action.payload;
+        yield axios.put(`/api/inventory/${id}`);
+        yield put({ type: 'FETCH_ALL' })
+    } catch (error) {
+        console.log('error deleting item from DB.....', error);
         alert('Something went wrong. Please try again.');
     }
 }
@@ -24,6 +46,8 @@ function* addProduct(action) {
 function* inventorySaga() {
     yield takeLatest('FETCH_ALL', fetchProduct);
     yield takeLatest('POST', addProduct);
+    yield takeLatest('DELETE', deleteProduct);
+    yield takeLatest('UPDATE', updateProduct);
   }
   
   export default inventorySaga;
