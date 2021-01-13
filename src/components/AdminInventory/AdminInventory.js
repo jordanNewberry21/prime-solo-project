@@ -4,32 +4,31 @@ import InventoryItem from '../InventoryItem/InventoryItem';
 
 // material-ui
 import { Grid, CircularProgress } from '@material-ui/core';
-import makeStyles from './styles';
-
-
-
+import useStyles from './styles';
 
 
 const AdminInventory = ({ setCurrentId }) => {
   
     const inventory = useSelector((store) => store.inventory);
-    const classes = makeStyles();
+    const classes = useStyles();
     const dispatch = useDispatch();
 
     const getInventory = useCallback( () => {
-      dispatch({ type: 'FETCH_PRODUCT' });
+      dispatch({ type: 'FETCH_ALL' });
       }, [dispatch]
-    )
+    ) // had to useCallback here to memoize this function to avoid hook warnings
+    // dispatch is needed in the dependency array so it can be passed to useEffect function
 
     useEffect( () => {
-      getInventory();
+      getInventory(); // this is being called on page load to
     }, [getInventory]);
     
 
     return (
       
       // shows circular loading bar to denote that things are loading
-      // if there are no items to be loaded
+      // if there are no items to be loaded, this lets the user know something is happening
+      // if the page is taking a while to load
       !inventory.length ? <CircularProgress /> : (
         <Grid className={classes.mainContainer} container  spacing={3}>
             {inventory.map((item) => (
@@ -37,7 +36,6 @@ const AdminInventory = ({ setCurrentId }) => {
                     <InventoryItem item={item} />
                 </Grid>
             ))}
-            {/* <p>{JSON.stringify(inventory)}</p> */}
         </Grid>
     )
       

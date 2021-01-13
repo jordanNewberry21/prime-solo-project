@@ -26,4 +26,18 @@ router.post('/', (req, res) => {
       })
 });
 
+router.put('/:id', (req, res) => {
+  console.log('req.params.id.....', req.params.id);
+  console.log('req.params......', req.params);
+
+  res.sendStatus(200);
+});
+
+router.delete('/:id', (req, res) => {
+  console.log('req.params.id.....', req.params.id);
+  console.log('req.params......', req.params);
+
+  res.sendStatus(200);
+});
+
 module.exports = router;

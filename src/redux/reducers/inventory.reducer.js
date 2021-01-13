@@ -1,6 +1,6 @@
 const inventory = (state = [], action) => {
     switch (action.type) {
-      case 'SET_PRODUCT':
+      case 'SET_ALL':
         return action.payload;
       default:
         return state;

@@ -2,13 +2,15 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 // material-ui
-import makeStyles from './styles';
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import useStyles from './styles';
+import { Card, CardContent, CardActions, Button, CardMedia, Typography } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 function InventoryItem (props) {
-  const classes = makeStyles();
+  const classes = useStyles();
   const item = props.item;
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <Card className={classes.card}>
@@ -17,7 +19,17 @@ function InventoryItem (props) {
                 <Typography variant="h6">{item.name}</Typography>
             </div>
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p" >{item.name}</Typography>
+                <CardActions className={classes.cardActions}>
+                <Typography variant="body1" color="textSecondary">${item.price}</Typography>
+                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium">
+                    Remove
+                    <DeleteIcon />
+                  </Button>
+                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" >
+                    Edit
+                    <MoreHorizIcon />
+                  </Button>
+                </CardActions>
             </CardContent>
         </Card>
   );
