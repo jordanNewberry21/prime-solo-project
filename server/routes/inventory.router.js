@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
+router.get('/', (req, res) => { // get all items route
   const sqlText = `SELECT * FROM "product";`;
   pool.query(sqlText).then(result => {
     res.send(result.rows);
@@ -12,11 +12,25 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  const sqlText = `SELECT * FROM "product"
+                  WHERE id=$1;`;
+  let itemId = req.params.id;
+  console.log(itemId);
+  // pool query
+  pool.query(sqlText, [itemId])
+      .then((result) => {
+        res.send(result.rows);
+      }).catch((error) => {
+        console.log('error retrieving movie details', error);
+      });
+})
+
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  console.log(req.body); // checking post item
   const sqlText = `INSERT INTO "product" ("name", "description", "price", "image") 
-                  VALUES ($1, $2, $3, $4);`;
+                  VALUES ($1, $2, $3, $4);`; // sql query with data sanitization
   pool.query(sqlText, [req.body.name, req.body.description, req.body.price, req.body.url])
       .then(result => {
         res.sendStatus(201);
