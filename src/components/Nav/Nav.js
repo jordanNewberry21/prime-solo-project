@@ -11,28 +11,25 @@ const Nav = (props) => {
     text: 'Login / Register',
   };
 
-  if (props.store.user.id != null) {
+  if (props.store.user.admin === true) {
     loginLinkData.path = '/admin-form';
     loginLinkData.text = 'Home';
-  }
+  } 
 
   return (
     <div className="nav">
-      <Link to="/home">
         <h2 className="nav-title">Creations by Casey</h2>
-      </Link>
       <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path}>
-          {/* Show this link if they are logged in or not,
-          but call this link 'Home' if they are logged in,
-          and call this link 'Login / Register' if they are not */}
-          {loginLinkData.text}
-        </Link>
+        {/* ternary operator, checks to see if user is admin, if not, the link to the 
+        "Home" page, which is the Admin AddItemForm, won't render. */}
+        {props.store.user.admin ? 
+        <Link className="nav-link" to={loginLinkData.path}>{loginLinkData.text}</Link> :
+         ''}
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-            <Link className="nav-link" to="/admin-inventory">
-              Inventory
+            <Link className="nav-link" to="/store">
+              Store
             </Link>
             <LogOutButton className="nav-link" />
           </>
@@ -43,7 +40,7 @@ const Nav = (props) => {
         </Link>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default connect(mapStoreToProps)(Nav);

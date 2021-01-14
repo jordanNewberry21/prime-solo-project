@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import AdminHome from '../AdminHome/AdminHome';
-import AdminInventory from '../AdminInventory/AdminInventory';
+import Inventory from '../Inventory/Inventory';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -58,8 +58,8 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/admin-inventory"
-              component={AdminInventory}
+              path="/store"
+              component={Inventory}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

@@ -7,9 +7,10 @@ import { Grid, CircularProgress } from '@material-ui/core';
 import useStyles from './styles';
 
 
-const AdminInventory = ({ setCurrentId }) => {
+const Inventory = () => {
   
     const inventory = useSelector((store) => store.inventory);
+    const user = useSelector((store) => store.user);
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -33,7 +34,7 @@ const AdminInventory = ({ setCurrentId }) => {
         <Grid className={classes.mainContainer} container  spacing={3}>
             {inventory.map((item) => (
                 <Grid key={item.id} item xs={12} sm={6}>
-                    <InventoryItem item={item} setCurrentId={setCurrentId} />
+                    <InventoryItem user={user} item={item} />
                 </Grid>
             ))}
         </Grid>
@@ -43,4 +44,4 @@ const AdminInventory = ({ setCurrentId }) => {
   
 }
 
-export default AdminInventory;
+export default Inventory;

@@ -6,6 +6,10 @@ import './Footer.css';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-const Footer = () => <footer>&copy; Prime Digital Academy</footer>;
+const Footer = () => <footer>
+                        <button 
+                            onClick={() => window.scrollTo({ top: 0, behavior: "smooth"})} 
+                            className="btn_asLink">Back To Top
+                        </button> | &copy; 2020 Creations by Casey | Built by Jordan Newberry</footer>;
 
 export default Footer;
