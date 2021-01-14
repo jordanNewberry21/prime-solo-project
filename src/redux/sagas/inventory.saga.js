@@ -34,11 +34,11 @@ function* deleteProduct(action) {
 
 function* updateProduct(action) {
     try {
-        const id = action.payload;
-        yield axios.put(`/api/inventory/${id}`);
+        const id = action.payload.id;
+        yield axios.put(`/api/inventory/${id}`, action.payload);
         yield put({ type: 'FETCH_ALL' })
     } catch (error) {
-        console.log('error deleting item from DB.....', error);
+        console.log('error updating item in DB.....', error);
         alert('Something went wrong. Please try again.');
     }
 }

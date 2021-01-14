@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => { // get item details route
       .then((result) => {
         res.send(result.rows);
       }).catch((error) => {
-        console.log('error retrieving movie details', error);
+        console.log('error retrieving product details', error);
       });
 })
 
@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
   let item = req.body
   const sqlText = `INSERT INTO "product" ("name", "description", "price", "image") 
                   VALUES ($1, $2, $3, $4);`; // sql query with data sanitization
-  pool.query(sqlText, [item.name, item.description, item.price, item.url])
+  pool.query(sqlText, [item.name, item.description, item.price, item.image])
       .then(result => {
         res.sendStatus(201);
       }).catch(error => {
@@ -48,7 +48,7 @@ router.put('/:id', (req, res) => {
   const sqlText = `UPDATE "product"
                   SET "name"=$1, "description"=$2, "price"=$3, "image"=$4
                   WHERE id=$5;`;
-  pool.query(sqlText, [itemToUpdate.name, itemToUpdate.description, itemToUpdate.price, itemToUpdate.url, id])
+  pool.query(sqlText, [itemToUpdate.name, itemToUpdate.description, itemToUpdate.price, itemToUpdate.image, id])
       .then(result => {
         res.sendStatus(203);
       }).catch(error => {
@@ -64,7 +64,7 @@ router.delete('/:id', (req, res) => {
   const sqlText = `DELETE FROM "product" WHERE id=$1;`;
   pool.query(sqlText, [id])
       .then(result => {
-        res.sendStatus(200);
+        console.log('item successfully deleted.....');
       }).catch(error => {
         console.log('error deleting item from inventory........', error);
         res.sendStatus(500);

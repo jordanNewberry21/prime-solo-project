@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import { Card, CardContent, CardActions, Button, CardMedia, Typography } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import Dialog from '../Dialog/Dialog';
 
 function InventoryItem (props) {
   const classes = useStyles();
@@ -22,13 +22,12 @@ function InventoryItem (props) {
                 <CardActions className={classes.cardActions}>
                 <Typography variant="body1" color="textSecondary">${item.price}</Typography>
                   <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
-                    Remove
+                    Remove &nbsp;
                     <DeleteIcon />
                   </Button>
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'UPDATE', payload: item.id })}>
-                    Edit
-                    <MoreHorizIcon />
-                  </Button>
+                  
+                    <Dialog itemToUpdate={item} />
+                   
                 </CardActions>
             </CardContent>
         </Card>

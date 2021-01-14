@@ -33,7 +33,7 @@ const AdminInventory = ({ setCurrentId }) => {
         <Grid className={classes.mainContainer} container  spacing={3}>
             {inventory.map((item) => (
                 <Grid key={item.id} item xs={12} sm={6}>
-                    <InventoryItem item={item} />
+                    <InventoryItem item={item} setCurrentId={setCurrentId} />
                 </Grid>
             ))}
         </Grid>
