@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => { // get all items route
-  const sqlText = `SELECT * FROM "product";`;
+  const sqlText = `SELECT * FROM "product" ORDER BY id;`;
   pool.query(sqlText).then(result => {
     res.send(result.rows);
   }).catch((error) => {
