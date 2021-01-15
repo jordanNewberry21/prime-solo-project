@@ -1,7 +1,9 @@
 const cart = (state = [], action) => {
     switch (action.type) {
       case 'ADD':
-        return [...state, action.payload]
+        return [...state, action.payload];
+      case 'REMOVE':
+        return state.filter(e => action.payload !== e.id);
       default:
         return state;
     }
