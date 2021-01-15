@@ -34,7 +34,7 @@ class App extends Component {
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/home" />
+            <Redirect exact from="/" to="/store" />
 
             {/* Visiting localhost:3000/about will show the about page. */}
             <Route
@@ -55,8 +55,8 @@ class App extends Component {
               component={AdminHome}
             />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
+            <Route
+              // Inventory component is now the default landing page
               exact
               path="/store"
               component={Inventory}

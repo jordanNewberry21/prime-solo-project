@@ -30,7 +30,7 @@ function InventoryItem (props) {
                   </Button>
                   <Dialog itemToUpdate={item} /> 
                 </> : 
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" fullWidth >Add to Cart</Button>
+                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'ADD', payload: item })}>Add to Cart</Button>
                 }
                 </CardActions>
             </CardContent>
