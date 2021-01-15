@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 // material-ui
 import useStyles from './styles';
 import { Card, CardContent, CardActions, Button, CardMedia, Typography } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
 import Dialog from '../Dialog/Dialog';
 
 function InventoryItem (props) {
@@ -24,15 +23,15 @@ function InventoryItem (props) {
                 <Typography variant="body1" color="textSecondary">${item.price}</Typography>
                 {user.admin ? 
                 <>
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
-                    Remove &nbsp;
-                    <DeleteIcon />
+                  <Button variant="outlined" style={{color: 'slateblue'}} size="small" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
+                    Remove 
+                    
                   </Button>
-                  <Dialog itemToUpdate={item} /> 
+                  <Dialog size="small" itemToUpdate={item} /> 
                 </> : 
                 <>
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'ADD', payload: item })}>Add to Cart</Button>
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="medium" onClick={() => dispatch({ type: 'REMOVE', payload: item.id })}>Remove From Cart</Button>
+                  <Button fullWidth variant="outlined" style={{color: 'slateblue'}} size="small" onClick={() => dispatch({ type: 'ADD', payload: item })}>Add to Cart</Button>
+                  <Button fullWidth variant="outlined" style={{color: 'slateblue'}} size="small" onClick={() => dispatch({ type: 'REMOVE', payload: item.id })}>Remove</Button>
                 </>
                 }
                 </CardActions>

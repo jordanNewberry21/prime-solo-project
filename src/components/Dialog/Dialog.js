@@ -7,7 +7,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 // components
 import AddItemForm from '../AddItemForm/AddItemForm';
@@ -28,9 +27,8 @@ export default function FormDialog(props) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Edit Item &nbsp;
-        <MoreHorizIcon />
+      <Button variant="outlined" size="small" color="primary" onClick={handleClickOpen}>
+        Edit
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Edit Item</DialogTitle>
