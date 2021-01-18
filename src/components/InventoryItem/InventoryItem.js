@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 // material-ui
@@ -11,6 +11,17 @@ function InventoryItem (props) {
   const dispatch = useDispatch();
   const item = props.item;
   const user = props.user;
+  const [cartButton, toggleCartButton] = useState(true);
+
+  const addToCart = () => {
+    toggleCartButton(!cartButton);
+    dispatch({ type: 'ADD', payload: item });
+  }
+
+  const removeFromCart = () => {
+    toggleCartButton(!cartButton);
+    dispatch({ type: 'REMOVE', payload: item.id });
+  }
 
   return (
     <Card className={classes.card}>
@@ -23,15 +34,20 @@ function InventoryItem (props) {
                 <Typography variant="body1" color="textSecondary">${item.price}</Typography>
                 {user.admin ? 
                 <>
-                  <Button variant="outlined" style={{color: 'slateblue'}} size="small" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
+                  <Button variant="outlined" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} size="small" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
                     Remove 
                     
                   </Button>
-                  <Dialog size="small" itemToUpdate={item} /> 
+                  <Dialog size="small" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} itemToUpdate={item} /> 
                 </> : 
                 <>
-                  <Button fullWidth variant="outlined" style={{color: 'slateblue'}} size="small" onClick={() => dispatch({ type: 'ADD', payload: item })}>Add to Cart</Button>
-                  <Button fullWidth variant="outlined" style={{color: 'slateblue'}} size="small" onClick={() => dispatch({ type: 'REMOVE', payload: item.id })}>Remove</Button>
+                  {cartButton ? 
+                    <Button fullWidth variant="outlined" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} size="small" onClick={() => addToCart()}>Add to Cart</Button> 
+                    : 
+                    <Button fullWidth variant="outlined" style={{color: 'aliceblue', backgroundColor: 'slateblue'}} size="small" onClick={() => removeFromCart()}>Remove</Button>
+                    }
+                  
+                  
                 </>
                 }
                 </CardActions>
