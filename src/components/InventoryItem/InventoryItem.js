@@ -29,6 +29,7 @@ function InventoryItem (props) {
 
   const goToDetails = () => {
     history.push('/details');
+    dispatch({ type: 'SET_DETAILS', payload: item });
   }
 
   return (
