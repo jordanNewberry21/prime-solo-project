@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 // material-ui
 import useStyles from './styles';
@@ -7,10 +8,13 @@ import { Card, CardContent, CardActions, Button, CardMedia, Typography } from '@
 import Dialog from '../Dialog/Dialog';
 
 function InventoryItem (props) {
+
+  // hooks
   const classes = useStyles();
   const dispatch = useDispatch();
   const item = props.item;
   const user = props.user;
+  const history = useHistory();
   const [cartButton, toggleCartButton] = useState(true);
 
   const addToCart = () => {
@@ -23,9 +27,14 @@ function InventoryItem (props) {
     dispatch({ type: 'REMOVE', payload: item.id });
   }
 
+  const goToDetails = () => {
+    history.push('/details');
+  }
+
   return (
     <Card className={classes.card}>
-            <CardMedia className={classes.media} image={item.image} title={item.name} />
+            <CardMedia onClick={() => goToDetails()}
+              className={classes.media} image={item.image} title={item.name} />
             <div className={classes.overlay}>
                 <Typography variant="h6">{item.name}</Typography>
             </div>

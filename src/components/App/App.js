@@ -19,6 +19,7 @@ import Inventory from '../Inventory/Inventory';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ItemDetails from '../ItemDetails/ItemDetails';
 
 import './App.css';
 
@@ -60,6 +61,13 @@ class App extends Component {
               exact
               path="/store"
               component={Inventory}
+            />
+
+            <Route 
+            // details page for individual items doesn't need to be protected
+              exact
+              path="/details"
+              component={ItemDetails}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
