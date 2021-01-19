@@ -1,7 +1,8 @@
 const feature = (state = [], action) => {
     switch (action.type) {
-      case 'GET_FEATURES':
-        return state.filter(e => action.payload !== e.featured);
+      case 'SET_ALL':
+        let inventory = action.payload;
+        return inventory.filter(e => e.featured);
       default:
         return state;
     }

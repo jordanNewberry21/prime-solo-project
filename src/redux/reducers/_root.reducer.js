@@ -4,6 +4,7 @@ import user from './user.reducer';
 import inventory from './inventory.reducer';
 import cart from './cart.reducer';
 import details from './details.reducer';
+import feature from './feature.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   inventory, // main inventory
   cart, // customer cart
   details, // details reducers, stores individual item details to be displayed at '/details'
+  feature, // feature reducer, loops through inventory items and filters out the "featured" items
 });
 
 export default rootReducer;
