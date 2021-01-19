@@ -46,9 +46,11 @@ function InventoryItem (props) {
                 <>
                   <Button variant="outlined" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} size="small" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
                     Remove 
-                    
                   </Button>
-                  <Dialog size="small" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} itemToUpdate={item} /> 
+                  <Button variant="outlined" size="small" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} onClick={() => dispatch({ type: 'SET_FEATURE', payload: item.id })} >
+                    Feature Item
+                  </Button>
+                  <Dialog size="small" itemToUpdate={item} /> 
                 </> : 
                 <>
                   {cartButton ? 

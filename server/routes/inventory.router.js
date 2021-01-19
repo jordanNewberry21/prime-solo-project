@@ -45,17 +45,27 @@ router.put('/:id', (req, res) => {
   console.log('req.body......', req.body); // checking post item to be updated
   let id = req.params.id;
   let itemToUpdate = req.body;
-  const sqlText = `UPDATE "product"
-                  SET "name"=$1, "description"=$2, "price"=$3, "image"=$4
-                  WHERE id=$5;`;
-  pool.query(sqlText, [itemToUpdate.name, itemToUpdate.description, itemToUpdate.price, itemToUpdate.image, id])
-      .then(result => {
-        res.sendStatus(203);
-      }).catch(error => {
-        console.log('error updating item in inventory........', error);
-        res.sendStatus(500);
-      })
-
+  if (id && !Object.keys(itemToUpdate).length) {
+    const sqlText = `UPDATE "product" SET "featured" = NOT "featured" WHERE id = $1;`
+    pool.query(sqlText, [id])
+        .then(result => {
+          res.sendStatus(203);
+        }).catch(error => {
+          console.log('error updating item in inventory FEATURED........', error);
+          res.sendStatus(500);
+        });
+  } else if (id && Object.keys(itemToUpdate).length) {
+    const sqlText = `UPDATE "product"
+                    SET "name"=$1, "description"=$2, "price"=$3, "image"=$4
+                    WHERE id=$5;`;
+    pool.query(sqlText, [itemToUpdate.name, itemToUpdate.description, itemToUpdate.price, itemToUpdate.image, id])
+        .then(result => {
+          res.sendStatus(203);
+        }).catch(error => {
+          console.log('error updating item in inventory NOT FEATURED........', error);
+          res.sendStatus(500);
+        })
+    }
 });
 
 router.delete('/:id', (req, res) => {

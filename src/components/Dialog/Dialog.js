@@ -27,7 +27,7 @@ export default function FormDialog(props) {
 
   return (
     <div>
-      <Button variant="outlined" size="small" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" size="small" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} onClick={handleClickOpen}>
         Edit
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">

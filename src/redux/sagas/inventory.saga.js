@@ -36,9 +36,21 @@ function* updateProduct(action) {
     try {
         const id = action.payload.id;
         yield axios.put(`/api/inventory/${id}`, action.payload);
-        yield put({ type: 'FETCH_ALL' })
+        yield put({ type: 'FETCH_ALL' });
     } catch (error) {
         console.log('error updating item in DB.....', error);
+        alert('Something went wrong. Please try again.');
+    }
+}
+
+function* featureProduct(action) {
+    try {
+        const id = action.payload;
+        console.log('id is............------>>>', id);
+        yield axios.put(`api/inventory/${id}`);
+        yield put({ type: 'FETCH_ALL' });
+    } catch (error) {
+        console.log('error updating featured item status in DB.....', error);
         alert('Something went wrong. Please try again.');
     }
 }
@@ -48,6 +60,7 @@ function* inventorySaga() {
     yield takeLatest('POST', addProduct);
     yield takeLatest('DELETE', deleteProduct);
     yield takeLatest('UPDATE', updateProduct);
+    yield takeLatest('SET_FEATURE', featureProduct);
   }
   
   export default inventorySaga;
