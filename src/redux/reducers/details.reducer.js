@@ -7,6 +7,6 @@ const details = (state = [], action) => {
     }
   };
   
-  // inventory will be on the redux state at:
-  // state.inventory
+  // details will be on the redux state at:
+  // state.details
   export default details;

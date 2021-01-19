@@ -31,18 +31,20 @@ const Inventory = () => {
       // if there are no items to be loaded, this lets the user know something is happening
       // if the page is taking a while to load
       !inventory.length ? <CircularProgress /> : (
-        <Grid className={classes.mainContainer} 
+        <Grid className={classes.mainContainer}
+              cols={3}
               container 
               spacing={2}
               direction="row"
               justify="flex-start"
               alignItems="flex-start">
             {inventory.map((item) => (
-                <Grid key={item.id} item xs={12} sm={6} md={3}>
+              <Grid key={item.id} item xs={12} sm={6} md={3}>
                     <InventoryItem user={user} item={item} />
-                </Grid>
+              </Grid>
             ))}
         </Grid>
+      
     )
       
     )

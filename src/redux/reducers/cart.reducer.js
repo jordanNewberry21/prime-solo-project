@@ -9,6 +9,6 @@ const cart = (state = [], action) => {
     }
   };
   
-  // inventory will be on the redux state at:
-  // state.inventory
+  // cart will be on the redux state at:
+  // state.cart
   export default cart;

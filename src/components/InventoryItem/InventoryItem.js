@@ -34,7 +34,7 @@ function InventoryItem (props) {
 
   return (
     <Card className={classes.card}>
-            <CardMedia onClick={() => goToDetails()}
+            <CardMedia style={{ cursor: 'pointer' }} onClick={() => goToDetails()}
               className={classes.media} image={item.image} title={item.name} />
             <div className={classes.overlay}>
                 <Typography variant="h6">{item.name}</Typography>
