@@ -64,7 +64,7 @@ router.put('/:id', (req, res) => {
         }).catch(error => {
           console.log('error updating item in inventory NOT FEATURED........', error);
           res.sendStatus(500);
-        })
+        });
     }
 });
 

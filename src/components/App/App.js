@@ -34,7 +34,7 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
+            {/* Visiting localhost:3000 will redirect to localhost:3000/store */}
             <Redirect exact from="/" to="/store" />
 
             {/* Visiting localhost:3000/about will show the about page. */}
@@ -80,7 +80,7 @@ class App extends Component {
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/admin-form"
+              authRedirect="/store"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -89,7 +89,7 @@ class App extends Component {
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/admin-form"
+              authRedirect="/store"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -98,7 +98,7 @@ class App extends Component {
               exact
               path="/home"
               component={LandingPage}
-              authRedirect="/admin-form"
+              authRedirect="/store"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

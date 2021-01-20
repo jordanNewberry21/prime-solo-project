@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import InventoryItem from '../InventoryItem/InventoryItem';
+import FeaturedItem from '../FeaturedItem/FeaturedItem';
 
 // material-ui
 import { Grid, CircularProgress } from '@material-ui/core';
@@ -21,7 +22,7 @@ const Inventory = () => {
     // dispatch is needed in the dependency array so it can be passed to useEffect function
 
     useEffect( () => {
-      getInventory(); // this is being called on page load to
+      getInventory(); // this is being called on page load to get the list of items
     }, [getInventory]);
     
 
@@ -30,7 +31,9 @@ const Inventory = () => {
       // shows circular loading bar to denote that things are loading
       // if there are no items to be loaded, this lets the user know something is happening
       // if the page is taking a while to load
-      !inventory.length ? <CircularProgress /> : (
+      <>
+      <FeaturedItem user={user} />
+      {!inventory.length ? <CircularProgress /> : (
         <Grid className={classes.mainContainer}
               cols={3}
               container 
@@ -45,7 +48,7 @@ const Inventory = () => {
             ))}
         </Grid>
       
-    )
+    )} </>
       
     )
   
