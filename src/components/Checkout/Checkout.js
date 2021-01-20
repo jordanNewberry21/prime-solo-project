@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Total from './total';
 
 function Checkout(props) {
   
     // hooks
-    const [heading, setHeading] = useState('Checkout');
+    const cart = useSelector((store) => store.cart);
 
     return (
         <div>
-        <h2>{heading}</h2>
+        <h2>Checkout</h2>
+        <h4>{cart.length}</h4>
         </div>
     );
 }

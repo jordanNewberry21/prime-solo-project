@@ -1,11 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Total from '../Checkout/total';
 
 const Nav = (props) => {
+
+  // hooks
+  const cart = useSelector((store) => store.cart);
+
+  // const totalCart = (cart) => {
+  //   return cart.map((result, item) => item.price + result, 0);
+  // }
+
   let loginLinkData = {
     path: '/login',
     text: 'Login / Register',
@@ -43,6 +52,11 @@ const Nav = (props) => {
         <Link className="nav-link" to="/about">
           About
         </Link>
+        <div>
+          <Link className="nav-link" to="/checkout">
+            Checkout ({cart.length}) <Total cart={cart} />
+          </Link>
+        </div>
       </div>
     </div>
   ); 

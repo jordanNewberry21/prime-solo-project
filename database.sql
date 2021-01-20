@@ -27,6 +27,7 @@ CREATE TABLE "product" (
 	"description" VARCHAR (2000) NOT NULL,
 	"price" VARCHAR (25) NOT NULL,
 	"image" VARCHAR (5000) NOT NULL,
+	"quantity" INT DEFAULT 1,
 	"sold" BOOLEAN DEFAULT false,
 	"featured" BOOLEAN DEFAULT false
 );

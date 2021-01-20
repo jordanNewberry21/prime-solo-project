@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ItemDetails from '../ItemDetails/ItemDetails';
+import Checkout from '../Checkout/Checkout';
 
 import './App.css';
 
@@ -68,6 +69,13 @@ class App extends Component {
               exact
               path="/details"
               component={ItemDetails}
+            />
+
+            <Route 
+            // checkout page for public users before they register doesn't need to be protected
+              exact
+              path="/checkout"
+              component={Checkout}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

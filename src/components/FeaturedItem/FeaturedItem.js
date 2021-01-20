@@ -10,12 +10,11 @@ function FeaturedItem(props) {
   
     // hooks
     const featuredItems = useSelector((store) => store.feature);
-    const [heading, setHeading] = useState('Featured Items');
     const user = props.user;
 
     return (
         <div>
-            <h2>{heading}</h2>
+            <h2>Featured Items</h2>
             <Carousel>
                 {
                     featuredItems.map((item) => <InventoryItem key={item.id} item={item} user={user} />)
