@@ -6,6 +6,12 @@ class RegisterForm extends Component {
   state = {
     username: '',
     password: '',
+    first_name: '',
+    last_name: '',
+    street: '',
+    city: '',
+    state: '',
+    zip: ''
   };
 
   registerUser = (event) => {
@@ -16,6 +22,12 @@ class RegisterForm extends Component {
       payload: {
         username: this.state.username,
         password: this.state.password,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
       },
     });
   }; // end registerUser
@@ -56,6 +68,78 @@ class RegisterForm extends Component {
               value={this.state.password}
               required
               onChange={this.handleInputChangeFor('password')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="first_name">
+            First Name:
+            <input
+              type="first_name"
+              name="first_name"
+              value={this.state.first_name}
+              required
+              onChange={this.handleInputChangeFor('first_name')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="last_name">
+            Last Name:
+            <input
+              type="last_name"
+              name="last_name"
+              value={this.state.last_name}
+              required
+              onChange={this.handleInputChangeFor('last_name')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="street">
+            Street Address:
+            <input
+              type="street"
+              name="street"
+              value={this.state.street}
+              required
+              onChange={this.handleInputChangeFor('street')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="city">
+            City:
+            <input
+              type="city"
+              name="city"
+              value={this.state.city}
+              required
+              onChange={this.handleInputChangeFor('city')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="state">
+            State:
+            <input
+              type="state"
+              name="state"
+              value={this.state.state}
+              required
+              onChange={this.handleInputChangeFor('state')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="zip">
+            Zipcode:
+            <input
+              type="zip"
+              name="zip"
+              value={this.state.zip}
+              required
+              onChange={this.handleInputChangeFor('zip')}
             />
           </label>
         </div>
