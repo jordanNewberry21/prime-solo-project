@@ -33,9 +33,7 @@ export default makeStyles((theme) => ({
         marginLeft: theme.spacing(1),
       },
       review: {
-        maxWidth: '350px', 
-        display: 'flex',
-        flexWrap: 'wrap',
+        margin: 'auto',
       },
       payment: {
         maxWidth: '350px', 

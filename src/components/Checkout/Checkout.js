@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Total from './total';
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -25,18 +26,18 @@ function Checkout(props) {
     const cart = useSelector((store) => store.cart);
     const user = useSelector((store) => store.user);
     const classes = useStyles();
+    const history = useHistory();
     
 
     return (
 
       <div className={classes.review}>
-        <div >
+        <div className={classes.layout}>
             <h2>Checkout</h2>
             <h3>
                 {
                     user.id ? 
-                        `Thank you for returning to shop at Creations by Casey, ${user.first_name}!
-                        I remember you from last time.` 
+                        `Thank you for shopping at Creations by Casey, ${user.first_name}!` 
                             :
                         <> 
                             <div>
@@ -56,6 +57,10 @@ function Checkout(props) {
                     ))}
             </ul>
             <h3>Total: <Total cart={cart} /></h3>
+            <Button 
+                variant="outlined"
+                style={{backgroundColor: 'slateblue', color: 'aliceblue' }}
+                onClick={history.push('/confirm')}>Place Order</Button>
         </div>
       </div>
     );

@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ItemDetails from '../ItemDetails/ItemDetails';
 import Checkout from '../Checkout/Checkout';
+import Confirm from '../Confirm/Confirm';
 
 import './App.css';
 
@@ -77,6 +78,15 @@ class App extends Component {
               path="/checkout"
               component={Checkout}
             />
+
+            <ProtectedRoute 
+            // confirm page for users after they register should be protected
+              exact
+              path="/confirm"
+              component={Confirm}
+            />
+
+            
 
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
