@@ -4,8 +4,6 @@ import { useHistory } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Total from './total';
 import RegisterForm from '../RegisterForm/RegisterForm';
-import PaymentForm from '../PaymentForm/PaymentForm';
-import Review from '../Review/Review';
 
 //material-ui
 import useStyles from './styles';
