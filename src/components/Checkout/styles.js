@@ -32,4 +32,16 @@ export default makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         marginLeft: theme.spacing(1),
       },
+      review: {
+        maxWidth: '350px', 
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+      payment: {
+        maxWidth: '350px', 
+        display: 'flex',
+        flexWrap: 'wrap',
+        float: 'right'
+      },
+
     }));

@@ -2,20 +2,19 @@
     font-size: 24px;
     font-weight: 700;
     display: inline-block;
-    color: #f2f2f2;
+    color: slateblue;
     padding-left: 10px;
 }
 
 .nav {
   margin: 0 0 30px;
-  background-color: #4fc7c9;
+  background-image: linear-gradient(to bottom right, aliceblue, slateblue);
   overflow: hidden;
 }
 
 .nav-link {
-  float: left;
+  float: right;
   color: #f2f2f2;
-  background-color: #4fc7c9;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -29,7 +28,8 @@
 }
 
 .nav-link:hover {
-  background-color: #008183;
+  color: slateblue;
+  background-color: aliceblue;
 }
 
 .nav-right {

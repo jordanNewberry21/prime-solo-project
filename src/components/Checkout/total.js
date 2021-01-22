@@ -7,9 +7,9 @@ const Total = ({cart}) => {
   return (
     <>
       <p>
-        $ {cart.reduce((sum, item) => (
-          sum += item.quantity * item.price
-        ), 0)}
+        $ {(Math.round(100*(cart.reduce((sum, item) => (
+          sum += Number(item.price)
+        ), 0)))) / 100}
       </p>
     </>
   );
