@@ -4,7 +4,7 @@ import InventoryItem from '../InventoryItem/InventoryItem';
 import FeaturedItem from '../FeaturedItem/FeaturedItem';
 
 // material-ui
-import { Grid, CircularProgress } from '@material-ui/core';
+import { Grid, CircularProgress, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
 
@@ -33,6 +33,7 @@ const Inventory = () => {
       // if the page is taking a while to load
       <>
       <FeaturedItem user={user} />
+      <Typography variant="h3" className={classes.header}>My Store</Typography>
       {!inventory.length ? <CircularProgress /> : (
         <Grid className={classes.mainContainer}
               cols={3}

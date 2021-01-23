@@ -2,19 +2,8 @@ footer {
   margin-top: 10px;
   padding: 20px;
   text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  height: 25px;
-  width: 100%;
-  background-color: aliceblue;
-}
-
-.phantom {
-  display: block;
-  padding: 20px;
-  height: 60px;
-  width: 100%;
+  
+  
 }
 
 .btn_asLink {

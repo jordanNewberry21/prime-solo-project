@@ -12,4 +12,9 @@ export default makeStyles((theme) => ({
   actionDiv: {
     textAlign: 'center',
   },
+  header: {
+    textAlign: 'center',
+    color: 'slateblue',
+    marginTop: '20px',
+  }
 }));
