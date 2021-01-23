@@ -4,6 +4,8 @@ const cart = (state = [], action) => {
         return [...state, action.payload];
       case 'REMOVE':
         return state.filter(e => action.payload !== e.id);
+      case 'CLEAR_CART':
+        return [];
       default:
         return state;
     }

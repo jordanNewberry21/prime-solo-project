@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
     },
     header: {
         textAlign: 'center',
+        color: 'slateblue',
     }
 
     }));

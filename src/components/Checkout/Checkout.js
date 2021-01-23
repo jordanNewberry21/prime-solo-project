@@ -7,16 +7,7 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 
 //material-ui
 import useStyles from './styles';
-import {
-    CssBaseline,
-    Paper,
-    Stepper,
-    Step,
-    StepLabel,
-    Button,
-    Link,
-    Typography
-} from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 function Checkout(props) {
   
@@ -31,7 +22,10 @@ function Checkout(props) {
 
       <div className={classes.review}>
         <div className={classes.layout}>
-            <h2>Checkout</h2>
+            <div>
+                <h2 className={classes.header}>Checkout</h2>
+            </div>
+
             <h3>
                 {
                     user.id ? 
@@ -41,7 +35,7 @@ function Checkout(props) {
                             <div>
                                 <h4>Please Register to to help complete the order.</h4>
                             </div>
-                            <RegisterForm />
+                            <RegisterForm className={classes.layout} />
                         </>
                 }
             </h3>
@@ -58,7 +52,7 @@ function Checkout(props) {
             <Button 
                 variant="outlined"
                 style={{backgroundColor: 'slateblue', color: 'aliceblue' }}
-                onClick={history.push('/confirm')}>Place Order</Button>
+                onClick={() => history.push('/confirm')}>Place Order</Button>
         </div>
       </div>
     );

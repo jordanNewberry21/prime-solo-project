@@ -18,15 +18,12 @@ function FeaturedItem(props) {
     return (
         <div className={classes.carousel}>
             <h2 className={classes.header}>Featured Items</h2>
-            <Carousel 
-                next={ (next, active) => console.log(`we left ${active}, and are now at ${next}`) }
-                prev={ (prev, active) => console.log(`we left ${active}, and are now at ${prev}`) }>
+            <Carousel>
                 
                 {
                     featuredItems.map((item) => 
-                        <Paper>
                             <InventoryItem key={item.id} item={item} user={user} />
-                        </Paper>)
+                        )
                 }
             </Carousel>
         </div>

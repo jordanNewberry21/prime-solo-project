@@ -10,36 +10,15 @@ export default makeStyles((theme) => ({
           marginLeft: 'auto',
           marginRight: 'auto',
         },
+        color: 'slateblue',
+        backgroundColor: 'aliceblue',
       },
-      paper: {
-        marginTop: theme.spacing(3),
-        marginBottom: theme.spacing(3),
-        padding: theme.spacing(2),
-        [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
-          marginTop: theme.spacing(6),
-          marginBottom: theme.spacing(6),
-          padding: theme.spacing(3),
-        },
-      },
-      stepper: {
-        padding: theme.spacing(3, 0, 5),
-      },
-      buttons: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-      },
-      button: {
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
+      header: {
+        textAlign: 'center',
       },
       review: {
         margin: 'auto',
       },
-      payment: {
-        maxWidth: '350px', 
-        display: 'flex',
-        flexWrap: 'wrap',
-        float: 'right'
-      },
+      
 
     }));

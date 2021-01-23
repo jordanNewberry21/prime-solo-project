@@ -8,6 +8,7 @@ class RegisterForm extends Component {
     password: '',
     first_name: '',
     last_name: '',
+    email: '',
     street: '',
     city: '',
     state: '',
@@ -24,6 +25,7 @@ class RegisterForm extends Component {
         password: this.state.password,
         first_name: this.state.first_name,
         last_name: this.state.last_name,
+        email: this.state.email,
         street: this.state.street,
         city: this.state.city,
         state: this.state.state,
@@ -92,6 +94,18 @@ class RegisterForm extends Component {
               value={this.state.last_name}
               required
               onChange={this.handleInputChangeFor('last_name')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="email">
+            Email Address:
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              required
+              onChange={this.handleInputChangeFor('email')}
             />
           </label>
         </div>
