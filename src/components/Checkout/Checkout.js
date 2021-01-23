@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 // components
@@ -17,6 +17,13 @@ function Checkout(props) {
     const user = useSelector((store) => store.user);
     const classes = useStyles();
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    // checkout function
+    const checkout = () => {
+        history.push('/confirm');
+        dispatch({ type: 'CLEAR_CART' });
+    }
     
 
     return (
@@ -57,7 +64,7 @@ function Checkout(props) {
             <Button 
                 variant="outlined"
                 style={{backgroundColor: 'slateblue', color: 'aliceblue' }}
-                onClick={() => history.push('/confirm')}>Place Order</Button>
+                onClick={checkout}>Place Order</Button>
         </div>
       </div>
     );
