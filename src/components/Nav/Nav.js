@@ -11,10 +11,6 @@ const Nav = (props) => {
   // hooks
   const cart = useSelector((store) => store.cart);
 
-  // const totalCart = (cart) => {
-  //   return cart.map((result, item) => item.price + result, 0);
-  // }
-
   let loginLinkData = {
     path: '/login',
     text: 'Login / Register',
@@ -52,6 +48,7 @@ const Nav = (props) => {
         <Link className="nav-link" to="/about">
           About
         </Link>
+        {/* Checkout button */}
         <div>
           <Link className="nav-link" to="/checkout">
             Checkout ({cart.length}) <Total cart={cart} />

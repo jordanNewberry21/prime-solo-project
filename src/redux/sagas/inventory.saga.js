@@ -12,7 +12,7 @@ function* fetchProduct() {
 }
 
 function* addProduct(action) {
-    try {
+    try { // post route adding new item to inventory
         yield axios.post('/api/inventory', action.payload);
         yield put({ type: 'FETCH_ALL' });
     } catch (error) {
@@ -22,7 +22,7 @@ function* addProduct(action) {
 }
 
 function* deleteProduct(action) {
-    try {
+    try { // delete item by id
         const id = action.payload;
         yield axios.delete(`/api/inventory/${id}`);
         yield put({ type: 'FETCH_ALL' })
@@ -33,7 +33,7 @@ function* deleteProduct(action) {
 }
 
 function* updateProduct(action) {
-    try {
+    try { // update whole item by id with new item as payload
         const id = action.payload.id;
         yield axios.put(`/api/inventory/${id}`, action.payload);
         yield put({ type: 'FETCH_ALL' });
@@ -44,9 +44,9 @@ function* updateProduct(action) {
 }
 
 function* featureProduct(action) {
-    try {
+    try { // this route just sends the item id to the route
+        // to be used to flip the boolean "featured" value
         const id = action.payload;
-        console.log('id is............------>>>', id);
         yield axios.put(`api/inventory/${id}`);
         yield put({ type: 'FETCH_ALL' });
     } catch (error) {

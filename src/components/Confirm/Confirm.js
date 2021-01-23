@@ -1,15 +1,18 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 const Confirm = () => {
 
+    // hooks
+    const user = useSelector((store) => store.user);
+
     return (
-      <div>
-          <h2>
-              Thank you so much for your order.
-          </h2>
-      </div>
+        <div>
+            <h2 style={{ textAlign: 'center', color: 'slateblue' }}>
+                Thank you so much for your order {user.first_name}!
+            </h2>
+        </div>
       
     )
   

@@ -12,6 +12,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import AddItemForm from '../AddItemForm/AddItemForm';
 
 export default function FormDialog(props) {
+  // open & close modal state
   const [open, setOpen] = useState(false);
 
   // item as props being passed to the form component called below

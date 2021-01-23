@@ -12,11 +12,9 @@ class AdminHome extends Component {
       <div>
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
         <AddItemForm />
-        
       </div>
     );
   }
 }
 
-// this allows us to use <App /> in index.js
 export default connect(mapStoreToProps)(AdminHome);

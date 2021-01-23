@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { connect, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+
+// components
 import Total from './total';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
@@ -25,7 +26,10 @@ function Checkout(props) {
             <div>
                 <h2 className={classes.header}>Checkout</h2>
             </div>
-
+            {/* ternary operator, checking for user.id, assuming that this is a first-time user
+            requiring registration if not logged in. this doesn't account for returning customers
+            that haven't logged in and could be confusing for them. If the user is logged in,
+            display name and thank for returning, if not logged in display registerForm */}
             <h3>
                 {
                     user.id ? 
@@ -40,7 +44,8 @@ function Checkout(props) {
                 }
             </h3>
             <h4>{cart.length} Item(s) </h4>
-            <ul>
+            {/* ul is displaying items in the cart */}
+            <ul> 
                 {
                     cart.map((item, i) => (
                         <li key={i}>
@@ -58,4 +63,4 @@ function Checkout(props) {
     );
 }
 
-export default connect(mapStoreToProps)(Checkout);
+export default Checkout;

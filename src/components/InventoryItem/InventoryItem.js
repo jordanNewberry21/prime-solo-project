@@ -42,6 +42,8 @@ function InventoryItem (props) {
             <CardContent>
                 <CardActions className={classes.cardActions}>
                 <Typography variant="body1" color="textSecondary">${item.price}</Typography>
+                {/* this ternary is checking if the user is an admin, if so
+                this component will render a different set of buttons */}
                 {user.admin ? 
                 <>
                   <Button variant="outlined" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} size="small" onClick={() => dispatch({ type: 'DELETE', payload: item.id })}>
@@ -53,13 +55,13 @@ function InventoryItem (props) {
                   <Dialog size="small" itemToUpdate={item} /> 
                 </> : 
                 <>
+                {/* this second ternary, nested in the first one is checking the cart button state
+                essentially toggling this button between Add to Cart and Remove */}
                   {cartButton ? 
                     <Button fullWidth variant="outlined" style={{color: 'slateblue', backgroundColor: 'aliceblue'}} size="small" onClick={() => addToCart()}>Add to Cart</Button> 
                     : 
                     <Button fullWidth variant="outlined" style={{color: 'aliceblue', backgroundColor: 'slateblue'}} size="small" onClick={() => removeFromCart()}>Remove</Button>
                     }
-                  
-                  
                 </>
                 }
                 </CardActions>

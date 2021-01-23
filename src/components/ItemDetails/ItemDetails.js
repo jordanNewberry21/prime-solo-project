@@ -4,8 +4,6 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-
-
 // material-ui
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';

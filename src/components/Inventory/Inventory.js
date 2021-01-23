@@ -9,7 +9,8 @@ import useStyles from './styles';
 
 
 const Inventory = () => {
-  
+
+    // hooks
     const inventory = useSelector((store) => store.inventory);
     const user = useSelector((store) => store.user);
     const classes = useStyles();
@@ -32,10 +33,10 @@ const Inventory = () => {
       // if there are no items to be loaded, this lets the user know something is happening
       // if the page is taking a while to load
       <>
-      <FeaturedItem user={user} />
-      <Typography variant="h3" className={classes.header}>My Store</Typography>
-      {!inventory.length ? <CircularProgress /> : (
-        <Grid className={classes.mainContainer}
+        <FeaturedItem user={user} />
+        <Typography variant="h3" className={classes.header}>My Store</Typography>
+        {!inventory.length ? <CircularProgress /> : (
+          <Grid className={classes.mainContainer}
               cols={3}
               container 
               spacing={2}

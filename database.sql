@@ -12,6 +12,7 @@ CREATE TABLE "user" (
 	"password" VARCHAR (1000) NOT NULL,
 	"first_name" VARCHAR (30),
 	"last_name" VARCHAR (50),
+	"email" VARCHAR (100),
 	"street" VARCHAR (200),
 	"city" VARCHAR (100),
 	"state" VARCHAR (25),
