@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 // components
 import Total from './total';
 import RegisterForm from '../RegisterForm/RegisterForm';
+import PaymentForm from '../PaymentForm/PaymentForm';
 
 //material-ui
 import useStyles from './styles';
@@ -61,6 +62,7 @@ function Checkout(props) {
                     ))}
             </ul>
             <h3>Total: <Total cart={cart} /></h3>
+            <PaymentForm />
             <Button 
                 variant="outlined"
                 style={{backgroundColor: 'slateblue', color: 'aliceblue' }}
