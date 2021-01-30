@@ -5,18 +5,17 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
+// Protected Route component
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+// components
+import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
 import AboutPage from '../AboutPage/AboutPage';
 import AdminHome from '../AdminHome/AdminHome';
 import Inventory from '../Inventory/Inventory';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ItemDetails from '../ItemDetails/ItemDetails';
@@ -107,15 +106,6 @@ class App extends Component {
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/store"
-            />
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/user"
-              // - else shows LandingPage at "/home"
-              exact
-              path="/home"
-              component={LandingPage}
               authRedirect="/store"
             />
 
