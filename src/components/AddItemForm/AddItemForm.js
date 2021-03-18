@@ -5,22 +5,17 @@ import { useDispatch } from 'react-redux';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import useStyles from './styles';
 
-// de-constructing props to harness IDs for edit mode
 function AddItemForm(props) {
-  // postData hook
+  // hooks
   const [postData, setPostData] = useState({ name: '', description: '', price: '', image: '' });
-
-  // material-ui classes
   const classes = useStyles();
-
-  // dispatch hook
   const dispatch = useDispatch();
 
   // I passed this prop down from the InventoryItem component, through the Dialog component
   // I'm storing it here to set the state when I click the edit button
   const itemToUpdate = props.itemToUpdate;
 
-  // clicking the edit button triggers this useEffect
+  // clicking the edit / dialog button triggers this useEffect
   useEffect(() => {
     if(itemToUpdate) setPostData(itemToUpdate);
   }, [itemToUpdate]);
